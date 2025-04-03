@@ -95,15 +95,6 @@ public class RandomPlayerSelector {
         return player.contains("Captain") ? "" : team1.contains(player) ? " (Team 1)" : " (Team 2) ";
     }
 
-    public void printTeams(List<String> teams, String name) {
-        System.out.println("-----------" + name + "----------");
-        System.out.println(formatTeam(teams));
-    }
-
-    public List<String> getCaptains() {
-        return captainsNames;
-    }
-
     public void writeCaptains() throws IOException {
         Util.writeToFile(formatTeam(captainsNames), "teams-my-circle/captains");
     }
