@@ -28,7 +28,6 @@ public class Util {
     public static void writeToFile(String team, String fileName) throws IOException {
         Path path = Path.of(fileName);
         if (Files.exists(path)) Files.delete(path);
-//        Files.createFile(path);
         Files.writeString(path, team);
     }
 }
