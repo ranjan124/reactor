@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.shieldteq'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation platform('io.projectreactor:reactor-bom:2024.0.4')
+    implementation 'io.projectreactor:reactor-core'
+
+    testImplementation 'io.projectreactor:reactor-test:3.6.11'
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
