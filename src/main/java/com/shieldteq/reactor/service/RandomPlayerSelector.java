@@ -42,17 +42,18 @@ public class RandomPlayerSelector {
 
     private void selectRandomCaptain(int i, List<String> team) throws IOException {
         List<String> captain = selectCaptains(team);
-        captains.add(captain.getFirst());
+        captains.addAll(captain);
         team.add("Captain : " + captain.getFirst() + " (Team " + i + ")");
         team.add("Vice Captain : " + captain.getLast() + " (Team " + i + ")");
         captainsNames.add("Captain : " + captain.getFirst() + " Team " + i);
+        captainsNames.add("Vice Captain : " + captain.getLast() + " Team " + i);
         writeTeam(team, "Random Team " + i);
     }
 
     private List<String> selectCaptains(List<String> players) {
 
         List<String> playerList = players.stream().filter(player -> !captains.contains(player)).collect(Collectors.toList());
-        if (playerList.size() < 2) {
+        if (playerList.size() < NO_OF_CAPTAINS) {
             captains.clear();
             playerList = new ArrayList<>(players);
         }
@@ -96,6 +97,7 @@ public class RandomPlayerSelector {
     }
 
     public void writeCaptains() throws IOException {
+        captainsNames.forEach(System.out::println);
         Util.writeToFile(formatTeam(captainsNames), "teams-my-circle/captains");
     }
 }

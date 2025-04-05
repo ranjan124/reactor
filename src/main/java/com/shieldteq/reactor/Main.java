@@ -9,8 +9,10 @@ public class Main {
         RandomPlayerSelector selector = new RandomPlayerSelector();
         selector.init("teams/team-1.txt", "teams/team-2.txt");
         selector.selectRandomPlayers(7, 4, 3, 1);
-        selector.selectRandomPlayers(4, 7, 3, 5);
-        selector.selectRandomPlayers(11, 4, 9);
+        selector.selectRandomPlayers(4, 7, 3, 4);
+        selector.selectRandomPlayers(11, 2, 7);
         selector.writeCaptains();
+
+//        Util.countPlayerInMyTeams();
     }
 }
